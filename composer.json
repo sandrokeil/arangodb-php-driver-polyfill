@@ -1,0 +1,61 @@
+{
+    "name": "prooph/arangodb-php-driver-polyfill",
+    "description": "A polyfill for the ArangoDB PHP extension for seamless integration",
+    "homepage": "http://getprooph.org/",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Alexander Miertsch",
+            "email": "contact@prooph.de",
+            "homepage": "http://www.prooph.de"
+        },
+        {
+            "name": "Sascha-Oliver Prolic",
+            "email": "saschaprolic@googlemail.com"
+        },
+        {
+            "name": "Sandro Keil",
+            "email": "github@sandro-keil.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.1",
+        "triagens/arangodb": "^3.3"
+    },
+    "require-dev": {
+        "container-interop/container-interop": "^1.1",
+        "sandrokeil/interop-config": "2.1",
+        "phpunit/phpunit": "^6.0",
+        "phpspec/prophecy": "^1.7",
+        "prooph/php-cs-fixer-config": "^0.2.1",
+        "malukenho/docheader": "^0.1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "ArangoDb\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ArangoDbTest\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": {
+            "prooph/*": "source"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs",
+            "docheader",
+            "@test"
+        ],
+        "cs": "php-cs-fixer fix -v --diff --dry-run",
+        "cs-fix": "php-cs-fixer fix -v --diff",
+        "docheader": "docheader check src/ tests/",
+        "test": "phpunit"
+    }
+}
